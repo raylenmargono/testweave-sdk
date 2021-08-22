@@ -15,16 +15,16 @@ export default class TestWeaveTransactionsManager implements ITestWeaveTransacti
    */
   private constructor(arweaveInstance: Arweave, host: string) {
     this._arweave = arweaveInstance;
-    this_host = host;
+    this._host = host;
   }
 
   /**
    * Private constructor that creates the TransactionManager Instance
    * @param arweaveInstance the Arweave instance
    */
-  public static async init(arweaveInstance: Arweave): Promise<TestWeaveTransactionsManager> {
+  public static async init(arweaveInstance: Arweave, host: string): Promise<TestWeaveTransactionsManager> {
     // const readyForMiningTxs: Array<string> = (await arweaveInstance.api.get('tx/ready_for_mining')).data;
-    return new TestWeaveTransactionsManager(arweaveInstance);
+    return new TestWeaveTransactionsManager(arweaveInstance, host);
   }
 
   /**

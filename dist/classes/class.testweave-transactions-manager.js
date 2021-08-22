@@ -46,18 +46,19 @@ var TestWeaveTransactionsManager = /** @class */ (function () {
      * is a static class.
      * @param arweaveInstance an arweave instance.
      */
-    function TestWeaveTransactionsManager(arweaveInstance) {
+    function TestWeaveTransactionsManager(arweaveInstance, host) {
         this._arweave = arweaveInstance;
+        this._host = host;
     }
     /**
      * Private constructor that creates the TransactionManager Instance
      * @param arweaveInstance the Arweave instance
      */
-    TestWeaveTransactionsManager.init = function (arweaveInstance) {
+    TestWeaveTransactionsManager.init = function (arweaveInstance, host) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 // const readyForMiningTxs: Array<string> = (await arweaveInstance.api.get('tx/ready_for_mining')).data;
-                return [2 /*return*/, new TestWeaveTransactionsManager(arweaveInstance)];
+                return [2 /*return*/, new TestWeaveTransactionsManager(arweaveInstance, host)];
             });
         });
     };
@@ -125,7 +126,7 @@ var TestWeaveTransactionsManager = /** @class */ (function () {
                         _a.trys.push([0, 2, , 3]);
                         request = this._arweave.api.request();
                         // console.log(request);
-                        request.defaults.baseURL = 'http://localhost';
+                        request.defaults.baseURL = this._host;
                         return [4 /*yield*/, request.get(endpoint, config)];
                     case 1:
                         response = _a.sent();
@@ -156,7 +157,7 @@ var TestWeaveTransactionsManager = /** @class */ (function () {
                         _a.trys.push([0, 5, , 6]);
                         request = this._arweave.api.request();
                         if (endpoint === 'graphql') {
-                            request.defaults.baseURL = 'http://localhost';
+                            request.defaults.baseURL = this._host;
                         }
                         return [4 /*yield*/, request.post(endpoint, body, config)];
                     case 1:

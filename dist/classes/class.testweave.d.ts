@@ -17,7 +17,7 @@ declare class TestWeave implements ITestWeave {
      * @param arweaveInstance the arweave instance on the top of with the TestWeave must be created. The instance should be created with arweave.init().
      * @returns TestWeave a TestWeave instance.
     */
-    static init(arweaveInstance: Arweave): Promise<TestWeave>;
+    static init(arweaveInstance: Arweave, host?: string): Promise<TestWeave>;
     /**
      * Returns the root JWK, its address should be MlV6DeOtRmakDOf6vgOBlif795tcWimgyPsYYNQ8q1Y and its initial balance is 100000000000000000
      * @returns JWKInterface a JSON containing the test weave root wallet

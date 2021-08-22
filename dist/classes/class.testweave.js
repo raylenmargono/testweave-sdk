@@ -75,14 +75,15 @@ var TestWeave = /** @class */ (function () {
      * @param arweaveInstance the arweave instance on the top of with the TestWeave must be created. The instance should be created with arweave.init().
      * @returns TestWeave a TestWeave instance.
     */
-    TestWeave.init = function (arweaveInstance) {
+    TestWeave.init = function (arweaveInstance, host) {
+        if (host === void 0) { host = 'localhost'; }
         return __awaiter(this, void 0, void 0, function () {
             var transactionManager, testWeaveInstance, err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, class_testweave_transactions_manager_1.default.init(arweaveInstance)];
+                        return [4 /*yield*/, class_testweave_transactions_manager_1.default.init(arweaveInstance, host)];
                     case 1:
                         transactionManager = _a.sent();
                         testWeaveInstance = new TestWeave(arweaveInstance, transactionManager);

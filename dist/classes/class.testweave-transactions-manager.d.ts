@@ -4,6 +4,7 @@ import { AxiosRequestConfig, AxiosResponse } from 'axios';
 import ITestWeaveTransactionsManager from '../interfaces/interface.testweave-transactions-manager';
 export default class TestWeaveTransactionsManager implements ITestWeaveTransactionsManager {
     private _arweave;
+    private _host;
     /**
      * The constructor of the class. Should never be called directly, since this
      * is a static class.
@@ -14,7 +15,7 @@ export default class TestWeaveTransactionsManager implements ITestWeaveTransacti
      * Private constructor that creates the TransactionManager Instance
      * @param arweaveInstance the Arweave instance
      */
-    static init(arweaveInstance: Arweave): Promise<TestWeaveTransactionsManager>;
+    static init(arweaveInstance: Arweave, host: string): Promise<TestWeaveTransactionsManager>;
     /**
      * Resolve the transactions pool
      * @param minedTransactions
