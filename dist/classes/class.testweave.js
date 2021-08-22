@@ -62,7 +62,10 @@ var TestWeave = /** @class */ (function () {
         // eslint-disable-next-line @typescript-eslint/ban-types
         body, config) { return _this._transactionManager.getPost(endpoint, body, config); };
         // overwrite the arweave.api.get method, so that it can send requests by means of the transaction manager
-        arweaveInstance.api.get = function (endpoint, config) { return _this._transactionManager.getGet(endpoint, config); };
+        // arweaveInstance.api.get = (
+        //   endpoint: string,
+        //   config?: AxiosRequestConfig,
+        // ) => this._transactionManager.getGet(endpoint, config);
         // init the arweave instance
         this._arweave = arweaveInstance;
         // init the utils
