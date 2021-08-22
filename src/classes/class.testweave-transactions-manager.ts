@@ -6,14 +6,16 @@ import TestWeaveUtils from './class.testweave-utils';
 
 export default class TestWeaveTransactionsManager implements ITestWeaveTransactionsManager {
   private _arweave: Arweave;
+  private _host: string;
 
   /**
    * The constructor of the class. Should never be called directly, since this
    * is a static class.
    * @param arweaveInstance an arweave instance.
    */
-  private constructor(arweaveInstance: Arweave) {
+  private constructor(arweaveInstance: Arweave, host: string) {
     this._arweave = arweaveInstance;
+    this_host = host;
   }
 
   /**
@@ -66,7 +68,7 @@ export default class TestWeaveTransactionsManager implements ITestWeaveTransacti
       // get the request
       const request = this._arweave.api.request();
       // console.log(request);
-      request.defaults.baseURL = 'http://localhost';
+      request.defaults.baseURL = this._host;
       const response = await request.get(endpoint, config);
       return response;
     } catch (error) {
@@ -91,7 +93,7 @@ export default class TestWeaveTransactionsManager implements ITestWeaveTransacti
       // get the request
       const request = this._arweave.api.request();
       if (endpoint === 'graphql') {
-        request.defaults.baseURL = 'http://localhost';
+        request.defaults.baseURL = this._host;
       }
       const response = await request.post(endpoint, body, config);
       if (endpoint === 'tx') {

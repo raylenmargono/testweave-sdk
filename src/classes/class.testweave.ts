@@ -52,10 +52,11 @@ class TestWeave implements ITestWeave {
   */
   public static async init(
     arweaveInstance: Arweave,
+    host: string = 'localhost',    
   ): Promise<TestWeave> {
     try {
       // init the transactions manager
-      const transactionManager = await TestWeaveTransactionsManager.init(arweaveInstance);
+      const transactionManager = await TestWeaveTransactionsManager.init(arweaveInstance, host);
       // create the testweave instace
       const testWeaveInstance = new TestWeave(arweaveInstance, transactionManager);
       // return the testweave instance
