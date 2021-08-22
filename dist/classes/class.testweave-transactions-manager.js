@@ -125,8 +125,6 @@ var TestWeaveTransactionsManager = /** @class */ (function () {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
                         request = this._arweave.api.request();
-                        // console.log(request);
-                        request.defaults.baseURL = this._host;
                         return [4 /*yield*/, request.get(endpoint, config)];
                     case 1:
                         response = _a.sent();
@@ -157,7 +155,7 @@ var TestWeaveTransactionsManager = /** @class */ (function () {
                         _a.trys.push([0, 5, , 6]);
                         request = this._arweave.api.request();
                         if (endpoint === 'graphql') {
-                            request.defaults.baseURL = this._host;
+                            //request.defaults.baseURL = this._host;
                         }
                         return [4 /*yield*/, request.post(endpoint, body, config)];
                     case 1:
