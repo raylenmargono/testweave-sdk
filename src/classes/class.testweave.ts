@@ -34,10 +34,10 @@ class TestWeave implements ITestWeave {
       config?: AxiosRequestConfig,
     ) => this._transactionManager.getPost(endpoint, body, config);
     // overwrite the arweave.api.get method, so that it can send requests by means of the transaction manager
-    // arweaveInstance.api.get = (
-    //   endpoint: string,
-    //   config?: AxiosRequestConfig,
-    // ) => this._transactionManager.getGet(endpoint, config);
+    arweaveInstance.api.get = (
+      endpoint: string,
+      config?: AxiosRequestConfig,
+    ) => this._transactionManager.getGet(endpoint, config);
     // init the arweave instance
     this._arweave = arweaveInstance;
     // init the utils
